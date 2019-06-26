@@ -1,6 +1,7 @@
 # create 2017 object
 
 # dependencies
+library(compstatr)
 library(dplyr)
 library(here)
 library(readr)
@@ -44,7 +45,8 @@ dec17 <- read_csv(here("data", "raw", "2017", "december2017.csv")) %>%
   slice(1:20)
 
 #save to rda file
-save(jan17, feb17, mar17, apr17, may17, jun17, jul17, aug17, sep17, oct17, nov17, dec17, file = here("data", "year17.rda"))
+save(jan17, feb17, mar17, apr17, may17, jun17, jul17, aug17, sep17,
+     oct17, nov17, dec17, file = here("data", "year17.rda"), version = 2)
 
 # save intermeadiate objects
 write_csv(jan17, here("data", "intermediate", "2017", "january2017.csv"))
@@ -62,5 +64,5 @@ write_csv(dec17, here("data", "intermediate", "2017", "december2017.csv"))
 
 yearList17 <- cs_load_year(path = here("data", "intermediate", "2017"))
 
-use_data(yearList17)
+use_data(yearList17, overwrite = TRUE)
 

@@ -58,6 +58,6 @@ read_csv(here("data", "raw", "2010", "december2010.csv")) %>%
 
 yearList10 <- cs_load_year(path = here("data", "intermediate", "2010"))
 
-use_data(yearList10)
+use_data(yearList10, overwrite = TRUE)
 
 
